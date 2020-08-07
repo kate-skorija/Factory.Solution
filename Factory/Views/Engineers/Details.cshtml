@@ -2,7 +2,6 @@
   Layout ="_Layout";
 }
 
-@using Factory.Models;
 @model Factory.Models.Engineer
 
 <h2>@Html.DisplayFor(model => model.Name)</h2>
@@ -23,6 +22,11 @@
           @foreach(var join in @Model.Machines)
           {
             <li>@Html.ActionLink($"{join.Machine.Model}", "Details", "Machines", new { id = join.Machine.MachineId })</li>
+            @using (Html.BeginForm("DeleteMachine", "Machines"))
+            {
+              @Html.Hidden("joinId", @join.EngineerMachineId)
+              <input type="submit" value="Delete"/>
+            }
           }
         </ul>
       }
