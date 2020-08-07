@@ -79,7 +79,7 @@ namespace Factory.Controllers
       var thisMachine = _db.Machines.FirstOrDefault(machine => machine.MachineId == id);
       _db.Machines.Remove(thisMachine);
       _db.SaveChanges();
-      return RedirectToAction("Index");
+      return RedirectToAction("Index", "Home");
     }
 
     [HttpPost]
@@ -88,7 +88,7 @@ namespace Factory.Controllers
       var joinEntry = _db.EngineerMachine.FirstOrDefault(entry => entry.EngineerMachineId == joinId);
       _db.EngineerMachine.Remove(joinEntry);
       _db.SaveChanges();
-      return RedirectToAction("Index");
+      return RedirectToAction("Index", "Home");
     }
   }
 }

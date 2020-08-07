@@ -1,0 +1,29 @@
+
+.splash h1 {
+  font-size: 100px;
+  padding: 50px 0;
+  text-align: center;
+}
+
+.splash h2 {
+  font-size: 50px;
+}
+
+.splash ul {
+    text-align: left;
+    list-style-position: inside;
+    font-size: 30px;
+    padding: 0;
+}
+
+.row {
+  justify-content: center;
+}
+
+.details ul li ul {
+  padding: 0 10px;
+}
+
+.details label {
+  font-weight: bold;
+}

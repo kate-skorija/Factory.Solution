@@ -4,6 +4,7 @@
 
 @model Factory.Models.Engineer
 
+<div class="details">
 <h2>@Html.DisplayFor(model => model.Name)</h2>
 
 <ul>
@@ -32,6 +33,7 @@
       }
     </ul></li>
 </ul>
+</div>
 
 <button class="btn btn-dark">@Html.ActionLink("Add a Machine", "AddMachine", new { id = Model.EngineerId })</button>
 <button class="btn btn-dark">@Html.ActionLink("Edit Engineer", "Edit", new { id = @Model.EngineerId })</button>
