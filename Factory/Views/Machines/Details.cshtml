@@ -1,0 +1,39 @@
+@{
+  Layout ="_Layout";
+}
+
+@model Factory.Models.Machine
+
+<h2>@Html.DisplayFor(model => model.Model)</h2>
+
+<ul>
+  <li>@Html.Label("Manufacturer"): @Html.DisplayFor(model => model.Manufacturer)</li>
+  <li>@Html.Label("Years in Operation"): @Html.DisplayFor(model => model.YearsInOperation)</li>
+  <li>@Html.Label("Date of Last Service"): @Html.DisplayFor(model => model.LastServiced)</li>
+  <li>@Html.Label("Routine Maintenance Interval"): @Html.DisplayFor(model => model.MaintenanceInterval)</li>
+  <li>@Html.Label("Engineers licensed for this machine"):
+    <ul>
+      @if (@Model.Engineers.Count == 0)
+      {
+        <li>There are no engineers licensed to repair this machine.</li>
+      }
+      else
+      {
+        <ul>
+          @foreach(var join in @Model.Engineers)
+          {
+            <li>@Html.ActionLink($"{join.Engineer.Name}", "Details", "Engineers", new { id = join.Engineer.EngineerId })</li>
+            @using (Html.BeginForm("DeleteEngineer", "Engineers"))
+            {
+              @Html.Hidden("joinId", @join.EngineerMachineId)
+              <input type="submit" value="Delete"/>
+            }
+          }
+        </ul>
+      }
+    </ul></li>
+</ul>
+
+<button class="btn btn-dark">@Html.ActionLink("Add an Engineer", "AddEngineer", new { id = Model.MachineId })</button>
+<button class="btn btn-dark">@Html.ActionLink("Edit Machine", "Edit", new { id = @Model.MachineId })</button>
+<button class="btn btn-dark">@Html.ActionLink("Delete Machine", "Delete", new { id = @Model.MachineId })</button>
