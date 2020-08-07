@@ -23,5 +23,8 @@
   @Html.Label("Routine Maintenance Interval");
   @Html.TextBoxFor(model => model.MaintenanceInterval, new { @class="form-control", required="required" });
 
+  @Html.Label("Engineer Licensed to Repair This Machine: ");
+  @Html.DropDownList("Engineers")
+
   <input type="submit" class="btn btn-dark" value="Add Machine" />
 }
