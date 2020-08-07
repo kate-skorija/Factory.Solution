@@ -50,6 +50,22 @@ namespace Factory.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+    public ActionResult AddMachine(int id)
+    {
+      var thisEngineer= _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
+      ViewBag.Machines = new SelectList(_db.Machines, "MachineId", "Model");
+      return View(thisEngineer);
+    }
+    [HttpPost]
+    public ActionResult AddMachine(Machine machine, int EngineerId)
+    {
+      if (EngineerId != 0)
+      {
+        _db.EngineerMachine.Add(new EngineerMachine() { EngineerId = EngineerId, MachineId = machine.MachineId });
+      }
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
     public ActionResult Delete(int id)
     {
       var thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
@@ -73,5 +89,5 @@ namespace Factory.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
-  }
+  } 
 }

@@ -1,0 +1,19 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.Engineer
+
+<h2>Add Machine</h2>
+
+<h4>Select a machine that @Html.DisplayFor(model => model.Name) is licensed to repair.</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.EngineerId)
+
+  @Html.Label("Machine")
+  @Html.DropDownList("Machines")
+
+  <input type="submit" class="btn btn-dark" value="Save" />
+}
