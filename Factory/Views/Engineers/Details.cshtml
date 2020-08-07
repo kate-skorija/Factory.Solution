@@ -2,6 +2,7 @@
   Layout ="_Layout";
 }
 
+@using Factory.Models;
 @model Factory.Models.Engineer
 
 <h2>@Html.DisplayFor(model => model.Name)</h2>
@@ -29,3 +30,5 @@
 </ul>
 
 <button class="btn btn-dark">@Html.ActionLink("Add a Machine", "AddMachine")</button>
+<button class="btn btn-dark">@Html.ActionLink("Edit Engineer", "Edit", new { id = @Model.EngineerId })</button>
+<button class="btn btn-dark">@Html.ActionLink("Delete Engineer", "Delete", new { id = @Model.EngineerId })</button>
