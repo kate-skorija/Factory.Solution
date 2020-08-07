@@ -12,24 +12,24 @@
   <li>@Html.Label("Date of Last Service"): @Html.DisplayFor(model => model.LastServiced)</li>
   <li>@Html.Label("Routine Maintenance Interval"): @Html.DisplayFor(model => model.MaintenanceInterval)</li>
   <li>@Html.Label("Engineers licensed for this machine"): 
+      <ul>
       @if (@Model.Engineers.Count == 0)
       {
         <li>There are no engineers licensed to repair this machine.</li>
       }
       else
       {
-        <ul>
-          @foreach(var join in Model.Engineers)
+        @foreach(var join in Model.Engineers)
+        {
+          <li><h3>@Html.ActionLink($"{join.Engineer.Name}", "Details", "Engineers", new { id = join.Engineer.EngineerId })</h3></li>
+          @using (Html.BeginForm("DeleteEngineer", "Machines"))
           {
-            <li><h3>@Html.ActionLink($"{join.Engineer.Name}", "Details", "Engineers", new { id = join.Engineer.EngineerId })</h3></li>
-            @using (Html.BeginForm("DeleteEngineer", "Machines"))
-            {
-              @Html.Hidden("joinId", @join.EngineerMachineId)
-              <input class="btn btn-dark" type="submit" value="Delete"/>
-            }
+            @Html.Hidden("joinId", @join.EngineerMachineId)
+            <input class="btn btn-dark" type="submit" value="Delete"/>
           }
-        </ul>
+        }
       }
+      </ul>
   </li>
 </ul>
 
