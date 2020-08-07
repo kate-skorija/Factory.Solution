@@ -20,7 +20,7 @@ namespace Factory.Controllers
     }
     public ActionResult Create()
     {
-      ViewBag.Machines = new SelectList(_db.Machines, "MachineId", "Model");
+      ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "Model");
       return View();
     }
     [HttpPost]
@@ -45,7 +45,7 @@ namespace Factory.Controllers
     public ActionResult Edit(int id)
     {
       var thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
-      ViewBag.Machines = new SelectList(_db.Machines, "MachineId", "Model");
+      ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "Model");
       return View(thisEngineer);
     }
 
@@ -63,7 +63,7 @@ namespace Factory.Controllers
     public ActionResult AddMachine(int id)
     {
       var thisEngineer= _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
-      ViewBag.Machines = new SelectList(_db.Machines, "MachineId", "Model");
+      ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "Model");
       return View(thisEngineer);
     }
     [HttpPost]
