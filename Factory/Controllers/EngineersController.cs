@@ -39,8 +39,8 @@ namespace Factory.Controllers
     }
     public ActionResult Edit(int id)
     {
-      var thisCategory = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
-      return View(thisCategory);
+      var thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
+      return View(thisEngineer);
     }
 
     [HttpPost]
