@@ -22,7 +22,7 @@
         <ul>
           @foreach(var join in @Model.Engineers)
           {
-            <li>@Html.ActionLink($"{join.Engineer.Name}", "Details", "Engineers", new { id = join.Engineer.EngineerId })</li>
+            <li><h3>@Html.ActionLink($"{join.Engineer.Name}", "Details", "Engineers", new { id = join.Engineer.EngineerId })</h3></li>
             @using (Html.BeginForm("DeleteEngineer", "Engineers"))
             {
               @Html.Hidden("joinId", @join.EngineerMachineId)

@@ -14,6 +14,6 @@ namespace Factory.Models
     public string Availability { get; set; }
     public DateTime HireDate { get; set; }
     public int ExperienceLevel { get; set; }
-    public virtual ICollection<EngineerMachine> Machines { get; set; }
+    public ICollection<EngineerMachine> Machines { get; set; }
   }
 }

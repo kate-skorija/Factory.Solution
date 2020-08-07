@@ -15,6 +15,7 @@
           <li>@Html.ActionLink($"{engineer.Name}", "Details", "Engineers", new { id = engineer.EngineerId })</li>
         }
       </ul>
+      <button class="btn btn-dark">@Html.ActionLink("Add Engineer", "Create", "Engineers")</button>
     </div>
 
     <div class="col col-sm-6">
@@ -24,6 +25,7 @@
           <li>@Html.ActionLink($"{machine.Model}", "Details", "Machines", new { id = machine.MachineId })</li>
         }
       </ul>
+      <button class="btn btn-dark">@Html.ActionLink("Add Machine", "Create", "Machines")</button>
     </div>
   </div>
 
