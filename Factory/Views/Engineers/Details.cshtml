@@ -1,0 +1,31 @@
+@{
+  Layout ="_Layout";
+}
+
+@model Factory.Models.Engineer
+
+<h2>@Html.DisplayFor(model => model.Name)</h2>
+
+<ul>
+  <li>@Html.Label("Availability"): @Html.DisplayFor(model => model.Availability)</li>
+  <li>@Html.Label("Hire Date"): @Html.DisplayFor(model => model.HireDate)</li>
+  <li>@Html.Label("Experience Level"): @Html.DisplayFor(model => model.ExperienceLevel)</li>
+  <li>@Html.Label("Licensed to work on"):
+    <ul>
+      @if (@Model.Machines.Count == 0)
+      {
+        <li>This engineer is not licensed to repair any machines.</li>
+      }
+      else
+      {
+        <ul>
+          @foreach(var join in @Model.Machines)
+          {
+            <li>@Html.ActionLink($"{join.Machine.Model}", "Details", "Machines", new { id = join.Machine.MachineId })</li>
+          }
+        </ul>
+      }
+    </ul></li>
+</ul>
+
+<button class="btn btn-dark">@Html.ActionLink("Add a Machine", "AddMachine")</button>
