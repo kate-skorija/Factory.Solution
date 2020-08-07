@@ -11,7 +11,7 @@ namespace Factory.Models
     }
     public int EngineerId { get; set; }
     public string Name { get; set; }
-    public string Shift { get; set; }
+    public string Availability { get; set; }
     public DateTime HireDate { get; set; }
     public int ExperienceLevel { get; set; }
     public virtual ICollection<EngineerMachine> Machines { get; set; }
